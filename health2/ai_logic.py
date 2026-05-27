@@ -61,7 +61,7 @@ def decode_medical_report(image_bytes, user_prompt=None, audio_bytes=None):
                     {"role": "system", "content": system_instruction},
                     {"role": "user", "content": f"{final_prompt}\n[Context: Processing query texts directly via backup engine]"}
                 ],
-                model="llama3-8b-8192",
+                model="llama-3.1-8b-instant",
             )
             groq_response = chat_completion.choices[0].message.content
             return f"⚠️ *Note: Gemini server is currently busy. Response generated via Backup Engine (Llama 3).* \n\n{groq_response}"
